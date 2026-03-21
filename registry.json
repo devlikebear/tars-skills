@@ -29,6 +29,24 @@
       "tags": ["creative", "writing", "long-running"],
       "path": "skills/novelist",
       "user_invocable": true
+    },
+    {
+      "name": "google-workspace",
+      "description": "Google Workspace personal assistant skill. Manages Calendar, Gmail, Drive, and Tasks via gogcli (gog) CLI.",
+      "version": "0.6.0",
+      "author": "devlikebear",
+      "tags": ["google", "calendar", "gmail", "drive", "tasks", "productivity"],
+      "path": "skills/google-workspace",
+      "user_invocable": true
+    },
+    {
+      "name": "tars-release",
+      "description": "TARS project release flow guide. Covers commit, PR, merge, VERSION.txt bump, CHANGELOG, release pipeline trigger, and Homebrew tap update.",
+      "version": "0.6.0",
+      "author": "devlikebear",
+      "tags": ["release", "ci-cd", "github", "homebrew"],
+      "path": "skills/tars-release",
+      "user_invocable": true
     }
   ]
 }
