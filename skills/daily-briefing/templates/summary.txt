@@ -1,0 +1,11 @@
+## 오늘의 브리핑 ({date})
+
+### 시스템
+- 호스트: {hostname}
+- 가동시간: {uptime}
+
+### 디스크
+- 사용량: {disk_used} / {disk_total} ({disk_pct})
+
+### 최근 Git 활동
+{git_log}

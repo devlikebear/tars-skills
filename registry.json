@@ -38,6 +38,16 @@
       "tags": ["google", "calendar", "gmail", "drive", "tasks", "productivity"],
       "path": "skills/google-workspace",
       "user_invocable": true
+    },
+    {
+      "name": "daily-briefing",
+      "description": "Daily briefing skill with companion shell script and templates for system status aggregation.",
+      "version": "0.6.0",
+      "author": "devlikebear",
+      "tags": ["briefing", "automation", "daily"],
+      "path": "skills/daily-briefing",
+      "user_invocable": true,
+      "files": ["briefing.sh", "templates/summary.txt"]
     }
   ]
 }
