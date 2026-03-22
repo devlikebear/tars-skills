@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "skills": [
     {
       "name": "project-start",
@@ -62,6 +62,31 @@
         "tars.plugin.json",
         "skills/project-start/SKILL.md",
         "skills/project-autopilot/SKILL.md"
+      ]
+    }
+  ],
+  "mcp_servers": [
+    {
+      "name": "safe-time",
+      "description": "Hosted MCP server that returns the current time for the local machine or a requested IANA timezone.",
+      "version": "0.1.0",
+      "author": "devlikebear",
+      "tags": ["mcp", "time", "utility", "safe"],
+      "path": "mcp-servers/safe-time",
+      "manifest": "tars.mcp.json",
+      "files": [
+        {
+          "path": "tars.mcp.json",
+          "sha256": "6b4035902828d3b35b6a4626fcb02010031206ae384a57715599f142d62cb9fe"
+        },
+        {
+          "path": "server.js",
+          "sha256": "e208136490d12620034359714d1ab107c14e2bebab3a7248c760ea789d3a5c01"
+        },
+        {
+          "path": "README.md",
+          "sha256": "921a6a139ef9e72b1edefe82c80860277914ded472b653b5cee287f3b805c49b"
+        }
       ]
     }
   ]

@@ -16,6 +16,12 @@ tars skill list
 
 # Update all skills
 tars skill update
+
+# Search trusted MCP packages
+tars mcp search
+
+# Install a hosted MCP server
+tars mcp install safe-time
 ```
 
 ## Skill Format
@@ -38,11 +44,11 @@ Skill instructions in Markdown...
 
 ## Registry Format
 
-`registry.json` indexes all available skills:
+`registry.json` indexes all available skills, plugins, and trusted MCP packages:
 
 ```json
 {
-  "version": 1,
+  "version": 3,
   "skills": [
     {
       "name": "skill-name",
@@ -53,6 +59,19 @@ Skill instructions in Markdown...
       "path": "skills/skill-name",
       "user_invocable": true
     }
+  ],
+  "mcp_servers": [
+    {
+      "name": "safe-time",
+      "path": "mcp-servers/safe-time",
+      "manifest": "tars.mcp.json",
+      "files": [
+        {
+          "path": "tars.mcp.json",
+          "sha256": "<sha256>"
+        }
+      ]
+    }
   ]
 }
 ```
@@ -60,8 +79,9 @@ Skill instructions in Markdown...
 ## Contributing
 
 1. Create `skills/<your-skill>/SKILL.md`
-2. Add an entry to `registry.json`
-3. Open a PR
+2. Or create `mcp-servers/<your-server>/tars.mcp.json` plus hosted runtime files
+3. Add an entry to `registry.json`
+4. Open a PR
 
 ## OpenClaw Compatibility
 
