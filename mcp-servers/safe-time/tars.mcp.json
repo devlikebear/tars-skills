@@ -3,6 +3,6 @@
   "server": {
     "name": "safe-time",
     "command": "node",
-    "args": ["${MCP_DIR}/server.js"]
+    "args": ["${MCP_DIR}/server.cjs"]
   }
 }
