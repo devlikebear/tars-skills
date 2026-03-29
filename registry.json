@@ -2,26 +2,6 @@
   "version": 3,
   "skills": [
     {
-      "name": "project-start",
-      "description": "Kick off a software project from natural language, collect clarifying answers, finalize a brief, seed the board, and start autonomous execution.",
-      "version": "0.7.0",
-      "author": "devlikebear",
-      "tags": ["project", "kickoff", "autopilot"],
-      "path": "skills/project-start",
-      "user_invocable": true,
-      "requires_plugin": "project-swarm"
-    },
-    {
-      "name": "project-autopilot",
-      "description": "Run an existing project board toward completion by dispatching todo and review stages, automatically recovering stalled work.",
-      "version": "0.7.0",
-      "author": "devlikebear",
-      "tags": ["project", "autopilot", "supervisor"],
-      "path": "skills/project-autopilot",
-      "user_invocable": false,
-      "requires_plugin": "project-swarm"
-    },
-    {
       "name": "novelist",
       "description": "Long-running creative project guide that interviews the user, maintains BRIEF/STATE docs, and advances a story project in small steps.",
       "version": "0.6.0",
@@ -50,21 +30,7 @@
       "files": ["briefing.sh", "templates/summary.txt"]
     }
   ],
-  "plugins": [
-    {
-      "name": "project-swarm",
-      "description": "Project kickoff and autonomous execution skills for TARS project manager workflows.",
-      "version": "0.7.0",
-      "author": "devlikebear",
-      "tags": ["project", "automation", "pm"],
-      "path": "plugins/project-swarm",
-      "files": [
-        "tars.plugin.json",
-        "skills/project-start/SKILL.md",
-        "skills/project-autopilot/SKILL.md"
-      ]
-    }
-  ],
+  "plugins": [],
   "mcp_servers": [
     {
       "name": "safe-time",
