@@ -30,7 +30,17 @@
       "files": ["briefing.sh", "templates/summary.txt"]
     }
   ],
-  "plugins": [],
+  "plugins": [
+    {
+      "name": "browser-devtools",
+      "description": "Chrome DevTools MCP server for interactive browser automation — navigate, click, fill forms, take screenshots, and debug web pages.",
+      "version": "1.0.0",
+      "author": "devlikebear",
+      "tags": ["browser", "automation", "chrome", "devtools", "mcp"],
+      "path": "plugins/browser-devtools",
+      "files": ["tars.plugin.json", "skills/browser-devtools/SKILL.md", "README.md"]
+    }
+  ],
   "mcp_servers": [
     {
       "name": "safe-time",
