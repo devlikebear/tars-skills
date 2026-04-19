@@ -57,7 +57,11 @@ classify_and_pack() {
     # Cheap heuristic: if line starts with `{` and ends with `}`, attempt field
     # extraction with awk. This avoids a jq runtime dep on minimal images.
     if [[ "$raw" == \{*\} ]]; then
-        ts=$(printf '%s' "$raw" | sed -n 's/.*"ts"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' | head -n1)
+        # ts: accept `ts`, `time`, `timestamp`, `@timestamp` (first match wins)
+        for key in ts time timestamp "@timestamp"; do
+            ts=$(printf '%s' "$raw" | sed -n 's/.*"'"$key"'"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' | head -n1)
+            [[ -n "$ts" ]] && break
+        done
         level=$(printf '%s' "$raw" | sed -n 's/.*"level"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' | head -n1)
         msg=$(printf '%s' "$raw" | sed -n 's/.*"msg"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' | head -n1)
     fi

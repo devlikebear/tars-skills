@@ -32,7 +32,7 @@
     {
       "name": "log-watcher",
       "description": "Collect recent logs from a Docker container or a local file. Emits a uniform JSON envelope for downstream skills.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": "devlikebear",
       "tags": ["observability", "logs", "docker", "dogfooding"],
       "path": "skills/log-watcher",
@@ -44,7 +44,7 @@
         },
         {
           "path": "log_watcher.sh",
-          "sha256": "87948b1e1c8921fd33a4c8b3696872d4133e5c8fa35f19e19cb21ae3cccb6d44"
+          "sha256": "d23cd91fed5a6584ee84da8849d5731b73a028398f0e2a0cd20f669e50703f66"
         },
         {
           "path": "tests/test_log_watcher.sh",
