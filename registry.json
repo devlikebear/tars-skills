@@ -37,7 +37,20 @@
       "tags": ["observability", "logs", "docker", "dogfooding"],
       "path": "skills/log-watcher",
       "user_invocable": true,
-      "files": ["log_watcher.sh", "tests/test_log_watcher.sh"]
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "104698325f81e1a744c918edaec6602d9746f83db012d17c4cce0252ace1db26"
+        },
+        {
+          "path": "log_watcher.sh",
+          "sha256": "87948b1e1c8921fd33a4c8b3696872d4133e5c8fa35f19e19cb21ae3cccb6d44"
+        },
+        {
+          "path": "tests/test_log_watcher.sh",
+          "sha256": "810833fab3a282c50fc71bc9aba23dc3c9bd1b3cc9fb890c047be90d4c80eb01"
+        }
+      ]
     },
     {
       "name": "github-ops",
@@ -47,7 +60,20 @@
       "tags": ["github", "gh", "issues", "pr", "worktree", "dogfooding"],
       "path": "skills/github-ops",
       "user_invocable": true,
-      "files": ["github_ops.sh", "tests/test_github_ops.sh"]
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "6c762d1a3ef3b93e00245b5f0fbdd5ad0aae98134380a85f1cec9af022661488"
+        },
+        {
+          "path": "github_ops.sh",
+          "sha256": "515ea9a082a6c9006b08092ecf575253d0d07c685bc15a2407162bee46252184"
+        },
+        {
+          "path": "tests/test_github_ops.sh",
+          "sha256": "77e57a78e75db53db53e6a0ed55c58af52efe07c31a7ceae997dc571c345d4d3"
+        }
+      ]
     }
   ],
   "plugins": [
