@@ -28,6 +28,26 @@
       "path": "skills/daily-briefing",
       "user_invocable": true,
       "files": ["briefing.sh", "templates/summary.txt"]
+    },
+    {
+      "name": "log-watcher",
+      "description": "Collect recent logs from a Docker container or a local file. Emits a uniform JSON envelope for downstream skills.",
+      "version": "0.1.0",
+      "author": "devlikebear",
+      "tags": ["observability", "logs", "docker", "dogfooding"],
+      "path": "skills/log-watcher",
+      "user_invocable": true,
+      "files": ["log_watcher.sh", "tests/test_log_watcher.sh"]
+    },
+    {
+      "name": "github-ops",
+      "description": "Thin wrapper over gh + git worktree for issue search/create/comment, draft PRs, and per-branch worktree lifecycle.",
+      "version": "0.1.0",
+      "author": "devlikebear",
+      "tags": ["github", "gh", "issues", "pr", "worktree", "dogfooding"],
+      "path": "skills/github-ops",
+      "user_invocable": true,
+      "files": ["github_ops.sh", "tests/test_github_ops.sh"]
     }
   ],
   "plugins": [
