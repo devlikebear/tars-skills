@@ -53,6 +53,25 @@
       ]
     },
     {
+      "name": "log-anomaly-detect",
+      "description": "Scan a container's recent logs, classify anomalies, deduplicate against memory + existing GitHub issues, and file new issues or comment on recurrences. Pairs with log-watcher and github-ops.",
+      "version": "0.1.0",
+      "author": "devlikebear",
+      "tags": ["observability", "anomaly", "github", "dogfooding"],
+      "path": "skills/log-anomaly-detect",
+      "user_invocable": true,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "a54f302dc7a8ad7422676054d22257d10ad9f579c658afe7e4c5725e56df5463"
+        },
+        {
+          "path": "templates/issue_body.md",
+          "sha256": "1c4714692d05bd8525c7eff35fc971f9e39cbdcc954b7e4ad0e9190c2e1bafa1"
+        }
+      ]
+    },
+    {
       "name": "github-ops",
       "description": "Thin wrapper over gh + git worktree for issue search/create/comment, draft PRs, and per-branch worktree lifecycle.",
       "version": "0.1.0",
