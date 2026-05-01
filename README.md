@@ -57,7 +57,16 @@ Skill instructions in Markdown...
       "author": "username",
       "tags": ["tag1", "tag2"],
       "path": "skills/skill-name",
-      "user_invocable": true
+      "user_invocable": true,
+      "quality": {
+        "score": 85,
+        "last_updated": "2026-05-01",
+        "tests_passing": true,
+        "required_tools": ["bash"],
+        "permissions": ["filesystem"],
+        "companion_cli": true,
+        "install_count": 120
+      }
     }
   ],
   "mcp_servers": [
@@ -76,11 +85,25 @@ Skill instructions in Markdown...
 }
 ```
 
+### Quality Metadata
+
+Every installable registry entry may include a `quality` object. TARS renders
+this metadata in the Extensions Hub before install:
+
+- `score`: required when `quality` is present; integer from 0 to 100.
+- `last_updated`: ISO date (`YYYY-MM-DD`) for the packaged entry metadata or files.
+- `tests_passing`: whether the latest maintainer smoke/unit test pass is known.
+- `required_tools`: local executables or CLIs the package expects.
+- `permissions`: user-impacting capabilities such as `filesystem`, `github`,
+  `network`, `browser`, or `mcp`.
+- `companion_cli`: whether the skill ships or depends on a companion CLI/script.
+- `install_count`: optional observed install count when available.
+
 ## Contributing
 
 1. Create `skills/<your-skill>/SKILL.md`
 2. Or create `mcp-servers/<your-server>/tars.mcp.json` plus hosted runtime files
-3. Add an entry to `registry.json`
+3. Add an entry to `registry.json` with quality metadata
 4. Open a PR
 
 ## OpenClaw Compatibility

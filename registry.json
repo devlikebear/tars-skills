@@ -8,7 +8,14 @@
       "author": "devlikebear",
       "tags": ["creative", "writing", "long-running"],
       "path": "skills/novelist",
-      "user_invocable": true
+      "user_invocable": true,
+      "quality": {
+        "score": 72,
+        "last_updated": "2026-05-01",
+        "required_tools": [],
+        "permissions": ["filesystem"],
+        "companion_cli": false
+      }
     },
     {
       "name": "google-workspace",
@@ -17,7 +24,14 @@
       "author": "devlikebear",
       "tags": ["google", "calendar", "gmail", "drive", "tasks", "productivity"],
       "path": "skills/google-workspace",
-      "user_invocable": true
+      "user_invocable": true,
+      "quality": {
+        "score": 76,
+        "last_updated": "2026-05-01",
+        "required_tools": ["gog"],
+        "permissions": ["google_calendar", "gmail", "google_drive", "google_tasks"],
+        "companion_cli": true
+      }
     },
     {
       "name": "daily-briefing",
@@ -27,7 +41,14 @@
       "tags": ["briefing", "automation", "daily"],
       "path": "skills/daily-briefing",
       "user_invocable": true,
-      "files": ["briefing.sh", "templates/summary.txt"]
+      "files": ["briefing.sh", "templates/summary.txt"],
+      "quality": {
+        "score": 78,
+        "last_updated": "2026-05-01",
+        "required_tools": ["bash"],
+        "permissions": ["filesystem", "shell"],
+        "companion_cli": true
+      }
     },
     {
       "name": "log-watcher",
@@ -50,7 +71,15 @@
           "path": "tests/test_log_watcher.sh",
           "sha256": "810833fab3a282c50fc71bc9aba23dc3c9bd1b3cc9fb890c047be90d4c80eb01"
         }
-      ]
+      ],
+      "quality": {
+        "score": 88,
+        "last_updated": "2026-05-01",
+        "tests_passing": true,
+        "required_tools": ["bash"],
+        "permissions": ["filesystem", "shell", "docker"],
+        "companion_cli": true
+      }
     },
     {
       "name": "log-anomaly-detect",
@@ -69,7 +98,14 @@
           "path": "templates/issue_body.md",
           "sha256": "1c4714692d05bd8525c7eff35fc971f9e39cbdcc954b7e4ad0e9190c2e1bafa1"
         }
-      ]
+      ],
+      "quality": {
+        "score": 80,
+        "last_updated": "2026-05-01",
+        "required_tools": ["gh"],
+        "permissions": ["github", "memory", "filesystem"],
+        "companion_cli": false
+      }
     },
     {
       "name": "github-ops",
@@ -92,7 +128,15 @@
           "path": "tests/test_github_ops.sh",
           "sha256": "77e57a78e75db53db53e6a0ed55c58af52efe07c31a7ceae997dc571c345d4d3"
         }
-      ]
+      ],
+      "quality": {
+        "score": 90,
+        "last_updated": "2026-05-01",
+        "tests_passing": true,
+        "required_tools": ["bash", "git", "gh"],
+        "permissions": ["filesystem", "github", "shell"],
+        "companion_cli": true
+      }
     }
   ],
   "plugins": [
@@ -103,7 +147,14 @@
       "author": "devlikebear",
       "tags": ["browser", "automation", "chrome", "devtools", "mcp"],
       "path": "plugins/browser-devtools",
-      "files": ["tars.plugin.json", "skills/browser-devtools/SKILL.md", "README.md"]
+      "files": ["tars.plugin.json", "skills/browser-devtools/SKILL.md", "README.md"],
+      "quality": {
+        "score": 74,
+        "last_updated": "2026-05-01",
+        "required_tools": ["npx", "chrome"],
+        "permissions": ["browser", "network", "mcp"],
+        "companion_cli": false
+      }
     }
   ],
   "mcp_servers": [
@@ -128,7 +179,15 @@
           "path": "README.md",
           "sha256": "921a6a139ef9e72b1edefe82c80860277914ded472b653b5cee287f3b805c49b"
         }
-      ]
+      ],
+      "quality": {
+        "score": 82,
+        "last_updated": "2026-05-01",
+        "tests_passing": true,
+        "required_tools": ["node"],
+        "permissions": ["network", "mcp"],
+        "companion_cli": false
+      }
     }
   ]
 }
