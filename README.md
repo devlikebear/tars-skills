@@ -22,6 +22,9 @@ tars mcp search
 
 # Install a hosted MCP server
 tars mcp install safe-time
+
+# Review and install a domain pack
+tars pack install github-maintainer-pack
 ```
 
 ## Skill Format
@@ -81,6 +84,26 @@ Skill instructions in Markdown...
         }
       ]
     }
+  ],
+  "packs": [
+    {
+      "name": "github-maintainer-pack",
+      "description": "GitHub maintainer workflow bundle for log triage, issue filing, and PR/worktree operations.",
+      "version": "0.1.0",
+      "author": "devlikebear",
+      "tags": ["github", "maintenance", "dogfooding"],
+      "skills": ["github-ops", "log-watcher", "log-anomaly-detect"],
+      "plugins": [],
+      "mcp_servers": [],
+      "quality": {
+        "score": 86,
+        "last_updated": "2026-05-01",
+        "tests_passing": true,
+        "required_tools": ["bash", "git", "gh"],
+        "permissions": ["filesystem", "github", "shell", "docker"],
+        "companion_cli": true
+      }
+    }
   ]
 }
 ```
@@ -99,12 +122,19 @@ this metadata in the Extensions Hub before install:
 - `companion_cli`: whether the skill ships or depends on a companion CLI/script.
 - `install_count`: optional observed install count when available.
 
+### Domain Packs
+
+`packs` are reviewable bundles of existing skills, plugins, and MCP packages.
+TARS prints the install plan before applying it, then installs each member
+through the same sandbox checks as individual package installs.
+
 ## Contributing
 
 1. Create `skills/<your-skill>/SKILL.md`
 2. Or create `mcp-servers/<your-server>/tars.mcp.json` plus hosted runtime files
-3. Add an entry to `registry.json` with quality metadata
-4. Open a PR
+3. Or create a `packs` entry that references existing packages
+4. Add an entry to `registry.json` with quality metadata
+5. Open a PR
 
 ## OpenClaw Compatibility
 

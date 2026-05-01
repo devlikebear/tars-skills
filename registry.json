@@ -189,5 +189,25 @@
         "companion_cli": false
       }
     }
+  ],
+  "packs": [
+    {
+      "name": "github-maintainer-pack",
+      "description": "GitHub maintainer workflow bundle for log triage, issue filing, and PR/worktree operations.",
+      "version": "0.1.0",
+      "author": "devlikebear",
+      "tags": ["github", "maintenance", "dogfooding"],
+      "skills": ["github-ops", "log-watcher", "log-anomaly-detect"],
+      "plugins": [],
+      "mcp_servers": [],
+      "quality": {
+        "score": 86,
+        "last_updated": "2026-05-01",
+        "tests_passing": true,
+        "required_tools": ["bash", "git", "gh"],
+        "permissions": ["filesystem", "github", "shell", "docker"],
+        "companion_cli": true
+      }
+    }
   ]
 }
