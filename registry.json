@@ -188,6 +188,37 @@
         "permissions": ["network", "mcp"],
         "companion_cli": false
       }
+    },
+    {
+      "name": "stackchan",
+      "description": "Hosted MCP server that controls a Stack-chan (スタックチャン) desktop robot as a physical ambient output channel: expressions, head motion, speech, LEDs, camera, IR, and motion sequences. Mock-first with an optional HTTP bridge.",
+      "version": "0.1.0",
+      "author": "devlikebear",
+      "tags": ["mcp", "robot", "stackchan", "iot", "ambient"],
+      "path": "mcp-servers/stackchan",
+      "manifest": "tars.mcp.json",
+      "files": [
+        {
+          "path": "tars.mcp.json",
+          "sha256": "5e27a2d2af289cd268e2a49c039ae4ea45aaa82ccc9fe8fba49d4fd4568e1a6c"
+        },
+        {
+          "path": "server.cjs",
+          "sha256": "37edf82f3ab990e74ca06a76fcac5a774b1553b7805c92edf3e337f7a230f3b2"
+        },
+        {
+          "path": "README.md",
+          "sha256": "1518ef1db59e1cff5f79c62bc187f24529f5c36f4a22c077db124a05d0dae50d"
+        }
+      ],
+      "quality": {
+        "score": 80,
+        "last_updated": "2026-05-15",
+        "tests_passing": true,
+        "required_tools": ["node"],
+        "permissions": ["network", "mcp"],
+        "companion_cli": false
+      }
     }
   ],
   "packs": [
