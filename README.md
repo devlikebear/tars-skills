@@ -23,6 +23,11 @@ tars mcp search
 # Install a hosted MCP server
 tars mcp install safe-time
 
+# Install the Stack-chan robot skill
+# (the MCP server is external: `brew install devlikebear/tap/tars-stackchan` —
+#  the skill guides setup; this repo ships no Stack-chan server)
+tars skill install tars-stackchan
+
 # Review and install a domain pack
 tars pack install github-maintainer-pack
 ```

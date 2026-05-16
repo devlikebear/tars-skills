@@ -137,6 +137,28 @@
         "permissions": ["filesystem", "github", "shell"],
         "companion_cli": true
       }
+    },
+    {
+      "name": "tars-stackchan",
+      "description": "Drive an M5Stack Stack-chan desktop robot as a living physical presence for the agent (expression, head, LEDs, motion, speech). Uses the external devlikebear/tars-stackchan MCP server, installed via Homebrew — this skill ships no server.",
+      "version": "0.2.0",
+      "author": "devlikebear",
+      "tags": ["stackchan", "robot", "m5stack", "hardware", "mcp", "embodiment"],
+      "path": "skills/tars-stackchan",
+      "user_invocable": true,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "b9438d0f451b0bca3532bba4a2afe250c2e761f5bbe0b6610d1f6aa2c15c2e38"
+        }
+      ],
+      "quality": {
+        "score": 82,
+        "last_updated": "2026-05-16",
+        "required_tools": [],
+        "permissions": ["mcp", "network", "hardware"],
+        "companion_cli": false
+      }
     }
   ],
   "plugins": [
