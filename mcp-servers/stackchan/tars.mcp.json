@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "server": {
+    "name": "stackchan",
+    "command": "node",
+    "args": ["${MCP_DIR}/server.cjs"]
+  }
+}
