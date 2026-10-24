@@ -300,5 +300,35 @@
         "companion_cli": true
       }
     }
+  ],
+  "focus_templates": [
+    {
+      "name": "hotfix",
+      "description": "한두 가지 버그 수정이나 간단한 기능 추가를 빠르게 처리하기 위한 축약형 템플릿",
+      "version": "0.1.0",
+      "author": "devlikebear",
+      "tags": ["focus-template", "development", "hotfix"],
+      "path": "focus-templates/hotfix",
+      "files": [
+        {
+          "path": "template.yaml",
+          "sha256": "2c58afa6c1164124d0dababa3d07574906009b0bd31867adfafa1d0f8f6503e8"
+        }
+      ]
+    },
+    {
+      "name": "pc_maintenance",
+      "description": "디스크 용량, 불필요한 프로세스, 보안 점검을 포함한 PC 점검 및 정리 파이프라인",
+      "version": "0.1.0",
+      "author": "devlikebear",
+      "tags": ["focus-template", "system", "maintenance", "security"],
+      "path": "focus-templates/pc_maintenance",
+      "files": [
+        {
+          "path": "template.yaml",
+          "sha256": "8df9967544b5a695ca23ff0bc95faed83048adbc395288a1630b5fcba8285b94"
+        }
+      ]
+    }
   ]
 }
