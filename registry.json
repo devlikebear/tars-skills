@@ -15,7 +15,13 @@
         "required_tools": [],
         "permissions": ["filesystem"],
         "companion_cli": false
-      }
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "0b4f3e26c384072c2ee4fe4636151ae538eff091878627327c49c08a983eedc4"
+        }
+      ]
     },
     {
       "name": "google-workspace",
@@ -31,7 +37,13 @@
         "required_tools": ["gog"],
         "permissions": ["google_calendar", "gmail", "google_drive", "google_tasks"],
         "companion_cli": true
-      }
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "e1ae08d3a5a2fa56dd430e222ee3bbbebee2e47b3703a47f9e02125df1a6331c"
+        }
+      ]
     },
     {
       "name": "daily-briefing",
@@ -41,7 +53,20 @@
       "tags": ["briefing", "automation", "daily"],
       "path": "skills/daily-briefing",
       "user_invocable": true,
-      "files": ["briefing.sh", "templates/summary.txt"],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "07ac3867c59c9d90190cbe0b52192f720589eb2b556fce60d638e59182787df1"
+        },
+        {
+          "path": "briefing.sh",
+          "sha256": "3c39038bebe8a4c1fbee1941590a57898af2d9e57d1f9db610d631f611552c9f"
+        },
+        {
+          "path": "templates/summary.txt",
+          "sha256": "405774531d05d13ea372ccabdb117eb2975471349ecf9f369a5eae9282e12107"
+        }
+      ],
       "quality": {
         "score": 78,
         "last_updated": "2026-05-01",
@@ -169,7 +194,20 @@
       "author": "devlikebear",
       "tags": ["browser", "automation", "chrome", "devtools", "mcp"],
       "path": "plugins/browser-devtools",
-      "files": ["tars.plugin.json", "skills/browser-devtools/SKILL.md", "README.md"],
+      "files": [
+        {
+          "path": "tars.plugin.json",
+          "sha256": "5b265d2c3a5351520b89964fa5c633ed9c2e91d9450166ab045783e881cbb1f0"
+        },
+        {
+          "path": "skills/browser-devtools/SKILL.md",
+          "sha256": "a88a7c91f8fba87af83e9a2bd08d7e05a230383b935fffb234e336bfcf4b5981"
+        },
+        {
+          "path": "README.md",
+          "sha256": "4edbbabc416eec7bf9814221d28fb703f3d4b3321e3c4a574437613c47e7b235"
+        }
+      ],
       "quality": {
         "score": 74,
         "last_updated": "2026-05-01",
@@ -191,15 +229,15 @@
       "files": [
         {
           "path": "tars.mcp.json",
-          "sha256": "6b4035902828d3b35b6a4626fcb02010031206ae384a57715599f142d62cb9fe"
+          "sha256": "fd1c75018b011a5ddb3108bd6a146cd6c7e7a854e685172d8a7905b63a04a1bd"
         },
         {
-          "path": "server.js",
+          "path": "server.cjs",
           "sha256": "e208136490d12620034359714d1ab107c14e2bebab3a7248c760ea789d3a5c01"
         },
         {
           "path": "README.md",
-          "sha256": "921a6a139ef9e72b1edefe82c80860277914ded472b653b5cee287f3b805c49b"
+          "sha256": "0344415440d951852b2e055498cfc2256e6008ff0eee10389bee9e2f195aa38f"
         }
       ],
       "quality": {
