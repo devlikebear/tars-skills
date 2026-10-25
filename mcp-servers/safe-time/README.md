@@ -7,7 +7,7 @@ Hosted MCP server for TARS that exposes one low-risk tool:
 This package is fully hosted in `tars-skills` and runs with:
 
 ```bash
-node ${MCP_DIR}/server.js
+node ${MCP_DIR}/server.cjs
 ```
 
 To use it in TARS:

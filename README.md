@@ -30,7 +30,15 @@ tars skill install tars-stackchan
 
 # Review and install a domain pack
 tars pack install github-maintainer-pack
+
+# Search and install focus templates (pipeline shapes for TARS focus mode)
+tars template search
+tars template install hotfix
+tars template update
 ```
+
+The console offers the same under **Extensions → Hub**: skills, MCP servers,
+plugins, focus templates and packs.
 
 ## Skill Format
 
@@ -127,6 +135,43 @@ this metadata in the Extensions Hub before install:
 - `companion_cli`: whether the skill ships or depends on a companion CLI/script.
 - `install_count`: optional observed install count when available.
 
+### Focus Templates
+
+A focus template is the shape of a TARS focus pipeline: its stages, the
+behaviour each runs with (`plan`, `build`, `review`, `pr`, `pr_review`,
+`merge`) and what each is told to do. It is text only — no commands run at
+install. Each lives in `focus-templates/<id>/template.yaml`, the same YAML
+TARS writes to `<workspace>/focus-templates/`, and its registry entry name is
+the template id:
+
+```json
+"focus_templates": [
+  {
+    "name": "hotfix",
+    "description": "...",
+    "version": "0.1.0",
+    "author": "devlikebear",
+    "tags": ["focus-template", "development"],
+    "path": "focus-templates/hotfix",
+    "files": [{ "path": "template.yaml", "sha256": "<sha256>" }]
+  }
+]
+```
+
+TARS installs a template into the workspace's `focus-templates/` and never
+replaces a local template of the same id. An update skips a template the
+user has edited since installing it. Packs may list `focus_templates` too.
+
+To share a template you made in TARS (the console's Focus templates page has
+a **Share** button that prints these steps):
+
+```bash
+python3 scripts/registry.py add-focus-template ~/.tars/workspace/focus-templates/<id>.yaml
+git switch -c add-<id>-focus-template
+git add -A && git commit -m "Add <id> focus template"
+gh pr create --fill
+```
+
 ### Domain Packs
 
 `packs` are reviewable bundles of existing skills, plugins, and MCP packages.
@@ -137,9 +182,14 @@ through the same sandbox checks as individual package installs.
 
 1. Create `skills/<your-skill>/SKILL.md`
 2. Or create `mcp-servers/<your-server>/tars.mcp.json` plus hosted runtime files
-3. Or create a `packs` entry that references existing packages
-4. Add an entry to `registry.json` with quality metadata
-5. Open a PR
+3. Or add a focus template with `python3 scripts/registry.py add-focus-template <file>`
+4. Or create a `packs` entry that references existing packages
+5. Add an entry to `registry.json` with quality metadata
+6. Run `python3 scripts/registry.py sync` to write every file's sha256 —
+   TARS refuses a file whose checksum does not match — and
+   `python3 scripts/registry.py check` (CI runs it with PyYAML for full
+   focus template validation)
+7. Open a PR
 
 ## OpenClaw Compatibility
 
