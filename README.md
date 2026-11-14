@@ -28,6 +28,9 @@ tars mcp install safe-time
 #  the skill guides setup; this repo ships no Stack-chan server)
 tars skill install tars-stackchan
 
+# Install the LLM wiki skill (markdown wiki you write and lint yourself)
+tars skill install llm-wiki
+
 # Review and install a domain pack
 tars pack install github-maintainer-pack
 

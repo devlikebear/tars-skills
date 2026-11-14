@@ -184,6 +184,32 @@
         "permissions": ["mcp", "network", "hardware"],
         "companion_cli": false
       }
+    },
+    {
+      "name": "llm-wiki",
+      "description": "Builds and maintains a markdown wiki by reading raw source material and writing linked, sourced pages directly - a Karpathy-style LLM wiki, checked by a deterministic lint script.",
+      "version": "0.1.0",
+      "author": "devlikebear",
+      "tags": ["wiki", "knowledge-base", "notes", "markdown"],
+      "path": "skills/llm-wiki",
+      "user_invocable": true,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "3d43c51550275cb8f986f2f0b4cbc1a1e81703c38a9797c6af550bfd153bbd42"
+        },
+        {
+          "path": "wiki.py",
+          "sha256": "dfd3305c585f92c7479a32864363be5b262678082189ad2ebf31eeddf4238098"
+        }
+      ],
+      "quality": {
+        "score": 60,
+        "last_updated": "2026-11-14",
+        "required_tools": ["bash"],
+        "permissions": ["filesystem"],
+        "companion_cli": true
+      }
     }
   ],
   "plugins": [
