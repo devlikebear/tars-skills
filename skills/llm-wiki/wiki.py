@@ -40,6 +40,14 @@ last. Suggested format:
     YYYY-MM-DD - created/updated "Page Title" - why
 """
 
+# Non-blank, non-heading lines of LOG_TEMPLATE, so `stats` can tell the
+# scaffolded explanation apart from real log entries appended later.
+_LOG_TEMPLATE_BOILERPLATE = {
+    line.strip()
+    for line in LOG_TEMPLATE.splitlines()
+    if line.strip() and not line.startswith("#")
+}
+
 SCHEMA_TEMPLATE = """# Page schema
 
 Each file in `wiki/` is a markdown page with YAML-ish frontmatter:
@@ -219,7 +227,10 @@ def cmd_lint(args: argparse.Namespace) -> int:
                         if slugify(s) == slugify(target):
                             key = s
                             break
-                linked_from.setdefault(key, set()).add(stem)
+                if key != stem:
+                    # a self-link doesn't make a page reachable from
+                    # "another" page
+                    linked_from.setdefault(key, set()).add(stem)
 
     for target in extract_links(index_text):
         if not resolve_link(target, pages):
@@ -279,7 +290,11 @@ def cmd_stats(args: argparse.Namespace) -> int:
     log_lines = 0
     last_log_line = ""
     if log_path.exists():
-        lines = [l for l in log_path.read_text(encoding="utf-8").splitlines() if l.strip() and not l.startswith("#")]
+        lines = [
+            l
+            for l in log_path.read_text(encoding="utf-8").splitlines()
+            if l.strip() and not l.startswith("#") and l.strip() not in _LOG_TEMPLATE_BOILERPLATE
+        ]
         log_lines = len(lines)
         if lines:
             last_log_line = lines[-1]

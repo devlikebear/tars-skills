@@ -1,3 +1,5 @@
+import contextlib
+import io
 import sys
 import tempfile
 import unittest
@@ -154,6 +156,34 @@ class LintTests(unittest.TestCase):
             rc = wiki.cmd_lint(argparse_namespace(str(root)))
             self.assertEqual(rc, 1)
 
+    def test_self_link_does_not_prevent_orphan_detection(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = self._init(tmp)
+            write(
+                root / "wiki" / "Foo.md",
+                "---\ntitle: Foo\nsources:\n  - raw/foo.md\n---\nSee [[Foo]] (itself).\n",
+            )
+            # Foo is not linked from index.md or from any other page - only
+            # from itself.
+            write(root / "index.md", "# Index\n(nothing linked yet)\n")
+
+            out = io.StringIO()
+            with contextlib.redirect_stdout(out):
+                rc = wiki.cmd_lint(argparse_namespace(str(root)))
+            self.assertEqual(rc, 1)
+
+            report_lines = out.getvalue().splitlines()
+            orphan_label = next(i for i, l in enumerate(report_lines) if "orphan pages" in l)
+            orphan_items = []
+            for line in report_lines[orphan_label + 1:]:
+                if not line.startswith("  - "):
+                    break
+                orphan_items.append(line)
+            self.assertTrue(
+                any("Foo.md" in item for item in orphan_items),
+                f"expected Foo.md under the orphan pages section, got: {orphan_items}",
+            )
+
 
 class StatsTests(unittest.TestCase):
     def test_stats_counts(self):
@@ -169,6 +199,34 @@ class StatsTests(unittest.TestCase):
 
             rc = wiki.main(["stats", str(root)])
             self.assertEqual(rc, 0)
+
+    def test_fresh_log_template_is_not_counted_as_entries(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "wikiroot"
+            wiki.main(["init", str(root)])  # log.md only has the boilerplate
+
+            out = io.StringIO()
+            with contextlib.redirect_stdout(out):
+                rc = wiki.main(["stats", str(root)])
+            self.assertEqual(rc, 0)
+            report = out.getvalue()
+            self.assertIn("log entries: 0", report)
+            self.assertNotIn("last log entry", report)
+
+    def test_log_entry_count_ignores_boilerplate_even_with_real_entries(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "wikiroot"
+            wiki.main(["init", str(root)])
+            with (root / "log.md").open("a", encoding="utf-8") as f:
+                f.write("2026-11-14 - created Foo - testing\n")
+
+            out = io.StringIO()
+            with contextlib.redirect_stdout(out):
+                rc = wiki.main(["stats", str(root)])
+            self.assertEqual(rc, 0)
+            report = out.getvalue()
+            self.assertIn("log entries: 1", report)
+            self.assertIn("last log entry: 2026-11-14 - created Foo - testing", report)
 
 
 def argparse_namespace(directory: str):
