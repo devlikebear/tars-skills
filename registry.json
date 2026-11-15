@@ -210,6 +210,28 @@
         "permissions": ["filesystem"],
         "companion_cli": true
       }
+    },
+    {
+      "name": "aside-browser",
+      "description": "Browse, read and check web pages in the user's own signed-in Aside browser through the aside CLI: pages behind a login, Google/Naver searches, rendered-page checks and multi-step browser tasks.",
+      "version": "0.1.0",
+      "author": "devlikebear",
+      "tags": ["browser", "aside", "research", "e2e"],
+      "path": "skills/aside-browser",
+      "user_invocable": true,
+      "quality": {
+        "score": 75,
+        "last_updated": "2026-11-15",
+        "required_tools": ["bash", "aside"],
+        "permissions": ["browser", "network"],
+        "companion_cli": false
+      },
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "068c1b4685ffd8865f0f990d93a89f318eb97de8a8f5accf48488e602a364270"
+        }
+      ]
     }
   ],
   "plugins": [

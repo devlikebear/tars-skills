@@ -31,6 +31,9 @@ tars skill install tars-stackchan
 # Install the LLM wiki skill (markdown wiki you write and lint yourself)
 tars skill install llm-wiki
 
+# Browse and check pages in your own signed-in Aside browser (needs the aside CLI)
+tars skill install aside-browser
+
 # Review and install a domain pack
 tars pack install github-maintainer-pack
 
