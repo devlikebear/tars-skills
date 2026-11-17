@@ -34,6 +34,11 @@ tars skill install llm-wiki
 # Browse and check pages in your own signed-in Aside browser (needs the aside CLI)
 tars skill install aside-browser
 
+# Look after the desk TARS runs on (read-only JSON CLI), and the focus
+# template that inspects, asks for approval, applies and confirms
+tars skill install desk-ops
+tars template install desk_ops
+
 # Review and install a domain pack
 tars pack install github-maintainer-pack
 
