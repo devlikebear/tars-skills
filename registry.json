@@ -232,6 +232,37 @@
           "sha256": "068c1b4685ffd8865f0f990d93a89f318eb97de8a8f5accf48488e602a364270"
         }
       ]
+    },
+    {
+      "name": "desk-ops",
+      "description": "Look after the computer TARS runs on: disk, memory, processes, launchd/cron jobs, pending updates and security settings through a read-only JSON CLI, with changes only after approval. Pairs with the desk_ops focus template.",
+      "version": "0.1.0",
+      "author": "devlikebear",
+      "tags": ["system", "maintenance", "security", "ops"],
+      "path": "skills/desk-ops",
+      "user_invocable": true,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "6b1eb007c1db33afafaf6797619386d3c40c0bf6c55599bcbe5d42ca7db80e6a"
+        },
+        {
+          "path": "deskops.py",
+          "sha256": "510eb8c37e76b40683e5903396b0c22ce317e816013d5434083a25c70b6498c8"
+        },
+        {
+          "path": "test_deskops.py",
+          "sha256": "e75856a847e12e48078b85a32707728537ff703702573320a210100dd30214a5"
+        }
+      ],
+      "quality": {
+        "score": 70,
+        "last_updated": "2026-11-17",
+        "tests_passing": true,
+        "required_tools": ["bash", "python3"],
+        "permissions": ["filesystem", "shell"],
+        "companion_cli": true
+      }
     }
   ],
   "plugins": [
@@ -375,6 +406,20 @@
         {
           "path": "template.yaml",
           "sha256": "8df9967544b5a695ca23ff0bc95faed83048adbc395288a1630b5fcba8285b94"
+        }
+      ]
+    },
+    {
+      "name": "desk_ops",
+      "description": "Inspect this computer, propose changes, apply only the approved ones and confirm the result - remote desk care from the phone with the desk-ops skill.",
+      "version": "0.1.0",
+      "author": "devlikebear",
+      "tags": ["focus-template", "system", "maintenance", "ops"],
+      "path": "focus-templates/desk_ops",
+      "files": [
+        {
+          "path": "template.yaml",
+          "sha256": "1ce47d559475dcecdf148fac181325b6d3587ae55f8e62dddc811b809b7299ac"
         }
       ]
     }

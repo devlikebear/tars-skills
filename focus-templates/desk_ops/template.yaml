@@ -1,0 +1,65 @@
+id: desk_ops
+name: Desk operations
+description: Inspect this computer, propose changes, apply only the approved ones, and confirm. Uses the desk-ops skill. Not for goal mode.
+stages:
+  - id: plan
+    kind: plan
+    label: Inspect and propose
+    instructions: >-
+      Inspect first and change nothing in this stage. Use the desk-ops
+      skill's read-only CLI (deskops.py next to its SKILL.md; for a hub
+      install <workspace>/skills/desk-ops/deskops.py, run with python3 and
+      the absolute path): run `snapshot`, then whichever of `disk`, `procs`,
+      `jobs`, `updates` and `security` the goal concerns. Read-only commands
+      of your own are fine; anything that writes, kills, unloads, deletes,
+      installs or changes a setting waits for approval.
+
+
+      Then propose the plan. The goal line says what the developer asked
+      and what you found, in one sentence. Each task is one change and
+      states the exact command, what it affects, how to undo it, and its
+      risk (low, medium or high). A change the developer did not ask for is
+      a suggestion in the plan's notes, not a task. A change that needs
+      sudo, a password, a restart or someone at the desk is never a task:
+      list it under "for the desk" with the command to run there, and say
+      that a restart leaves the desk unreachable from the phone until
+      someone logs in. Never plan changes to TARS itself, Tailscale, or the
+      claude and gh CLIs. If nothing needs changing, the only task is the
+      report.
+
+
+      The verification commands are `deskops.py check ...` lines, with the
+      absolute path, that pass only once the changes took effect (for
+      example `python3 /abs/path/deskops.py check disk-free --path / --min-gb 30`).
+      Run `deskops.py check --help` for the list. A report-only plan has
+      none. Leave the end-to-end checks empty.
+  - id: apply
+    kind: build
+    label: Apply approved changes
+    instructions: >-
+      Carry out the approved tasks in order, with the commands as approved.
+      Do not add steps, widen a command (another path, a wider glob, a
+      force flag the plan did not have) or touch anything the plan does not
+      name. Never use sudo or type a password. If a command fails, or the
+      desk is not as the plan described, stop and say what you found
+      instead of improvising. Log every change to
+      ops-log/<YYYY-MM-DD>-<slug>.md in the working folder: the state
+      before, the command, its trimmed output and how to undo it. Never
+      write secrets, tokens or passwords there.
+  - id: confirm
+    kind: review
+    label: Confirm
+    instructions: >-
+      Read the facts again with deskops.py, the same subcommands the plan
+      used, and compare them with what the plan set out to change. A
+      finding is a task whose effect is not visible, a side effect (a
+      service that stopped, a job that no longer loads, a port that opened,
+      space that did not come back), or a "for the desk" item the report
+      leaves out. Finish the report in the ops-log file: what was found,
+      what changed, what is left for the desk with the commands to run
+      there, and how to undo each change.
+    fix_instructions: >-
+      Fix only what the findings name, within the commands the plan
+      approved, and log the fix like any other change. A fix that needs a
+      new kind of change is not a fix: say so in the report and leave it
+      for a new task.
