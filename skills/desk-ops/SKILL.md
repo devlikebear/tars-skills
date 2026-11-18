@@ -1,7 +1,7 @@
 ---
 name: desk-ops
 description: "Look after the computer TARS runs on: disk, memory, processes, launchd/cron jobs, pending updates and security settings, read through a read-only CLI that prints JSON. Changes happen only after the developer approves them. Pairs with the desk_ops focus template for remote care from the phone."
-version: 0.1.0
+version: 0.1.1
 user-invocable: true
 recommended_tools:
   - bash
@@ -52,6 +52,11 @@ What the script never prints: command-line arguments of processes, launchd
 lines. They are where tokens end up. Do not go and read them yourself unless
 the developer asks about that one job, and never repeat a secret you find.
 
+A volume's `used_pct` is `100 − free/total`, so on macOS it counts every
+APFS volume sharing the container. `df`'s Capacity column counts only that
+one volume and reads far lower for `/` (23% where `used_pct` says 81%).
+Quote `free_gb` when you report space; it is the same number either way.
+
 `security.findings` come from fixed rules (FileVault off → high, firewall
 off → medium, ssh/screen sharing/file sharing reachable from the network →
 medium, any other port reachable from the network → info). They are facts,
@@ -95,13 +100,22 @@ a pass.
 4. **Prefer the reversible step.** Move to the Trash (`mv … ~/.Trash/`) rather
    than `rm`; `launchctl bootout` a job rather than deleting its plist; quit an
    app (`osascript -e 'quit app "X"'`) before `kill`, and `kill` before
-   `kill -9`.
+   `kill -9`. One exception: when the point is to free disk space, the Trash
+   frees nothing, so delete outright what a build or a tool recreates by
+   itself — build outputs (`target/`, `node_modules/`, `DerivedData/`) and
+   caches (`go clean -cache`, `brew cleanup`). Before deleting from a
+   repository, confirm the folder is gitignored and holds no tracked files;
+   give the rebuild command as the undo. Anything only the developer could
+   recreate (documents, downloads, photos, VM images) still goes to the Trash
+   or stays where it is.
 5. **Do not touch** TARS itself (its server, LaunchAgent and workspace),
    Tailscale, the `claude`/`gh` CLIs or anything the phone needs to reach the
    desk — that would cut the session you are working in.
 6. **Write it down.** In a pipeline, log each change to
-   `ops-log/<YYYY-MM-DD>-<slug>.md` in the working folder: the command, its
-   trimmed output, and how to undo it. Never write secrets there.
+   `ops-log/<YYYY-MM-DD>-<slug>.md` in the working folder, dated in the desk's
+   local time (`date +%F`, not UTC — the developer looks for today's file):
+   the command, its trimmed output, and how to undo it. Never write secrets
+   there.
 
 ## The desk_ops focus template
 
