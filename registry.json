@@ -236,7 +236,7 @@
     {
       "name": "desk-ops",
       "description": "Look after the computer TARS runs on: disk, memory, processes, launchd/cron jobs, pending updates and security settings through a read-only JSON CLI, with changes only after approval. Pairs with the desk_ops focus template.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": "devlikebear",
       "tags": ["system", "maintenance", "security", "ops"],
       "path": "skills/desk-ops",
@@ -244,7 +244,7 @@
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "6b1eb007c1db33afafaf6797619386d3c40c0bf6c55599bcbe5d42ca7db80e6a"
+          "sha256": "8cca59aa17fb4c51f4143b3e2de6c942257d7848b611345b7d65fff638aee007"
         },
         {
           "path": "deskops.py",
@@ -257,7 +257,7 @@
       ],
       "quality": {
         "score": 70,
-        "last_updated": "2026-11-17",
+        "last_updated": "2026-11-18",
         "tests_passing": true,
         "required_tools": ["bash", "python3"],
         "permissions": ["filesystem", "shell"],
@@ -412,14 +412,14 @@
     {
       "name": "desk_ops",
       "description": "Inspect this computer, propose changes, apply only the approved ones and confirm the result - remote desk care from the phone with the desk-ops skill.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": "devlikebear",
       "tags": ["focus-template", "system", "maintenance", "ops"],
       "path": "focus-templates/desk_ops",
       "files": [
         {
           "path": "template.yaml",
-          "sha256": "1ce47d559475dcecdf148fac181325b6d3587ae55f8e62dddc811b809b7299ac"
+          "sha256": "5a72312fe4f31ec4b87c7f591af82af122a738b82a6f011cabb5feed4644015c"
         }
       ]
     }

@@ -24,8 +24,11 @@ stages:
       list it under "for the desk" with the command to run there, and say
       that a restart leaves the desk unreachable from the phone until
       someone logs in. Never plan changes to TARS itself, Tailscale, or the
-      claude and gh CLIs. If nothing needs changing, the only task is the
-      report.
+      claude and gh CLIs. To free space, delete outright only what a build
+      or a tool recreates (build outputs, caches) and say how it comes
+      back; anything else goes to the Trash, which frees nothing until it
+      is emptied at the desk. If nothing needs changing, the only task is
+      the report.
 
 
       The verification commands are `deskops.py check ...` lines, with the
@@ -43,7 +46,8 @@ stages:
       name. Never use sudo or type a password. If a command fails, or the
       desk is not as the plan described, stop and say what you found
       instead of improvising. Log every change to
-      ops-log/<YYYY-MM-DD>-<slug>.md in the working folder: the state
+      ops-log/<YYYY-MM-DD>-<slug>.md in the working folder, dated with
+      the desk's local date (`date +%F`, not UTC): the state
       before, the command, its trimmed output and how to undo it. Never
       write secrets, tokens or passwords there.
   - id: confirm
